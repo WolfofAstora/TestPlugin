@@ -1,0 +1,12 @@
+  name: PluginFirst
+  main: PluginFirst
+  version: 1.0
+
+  commands:
+    sayhello:
+      description: Says hello.
+      usage: /sayhello
+
+    hello:
+      description: says HELLOOO
+      usage: /hello
