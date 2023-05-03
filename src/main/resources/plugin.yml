@@ -4,7 +4,7 @@
 
   commands:
     sayhello:
-      description: Says hello.
+      description: Says hello. Greetes Player
       usage: /sayhello
 
     hello:
