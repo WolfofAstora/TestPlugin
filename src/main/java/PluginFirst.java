@@ -1,6 +1,6 @@
 import Commands.hello;
-import Commands.help;
 import Commands.sayhello;
+import Player.PlayerInfo;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.util.logging.Level;
 
@@ -19,5 +19,6 @@ public class PluginFirst extends JavaPlugin {
         this.getLogger().log(Level.INFO, "First_Plugin successfully loaded!");
         this.getCommand("hello").setExecutor(new hello());
         this.getCommand("sayhello").setExecutor(new sayhello());
+        this.getCommand("PlayerInfo").setExecutor(new PlayerInfo());
     }
 }

@@ -10,3 +10,7 @@
     hello:
       description: says HELLOOO
       usage: /hello
+
+    PlayerInfo:
+      description: prints several Infomations about the Player
+      usage: /PlayerInfo
