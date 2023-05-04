@@ -14,3 +14,7 @@
     PlayerInfo:
       description: prints several Infomations about the Player
       usage: /PlayerInfo
+
+    setZahl:
+      description: set Zahl in config file
+      usage: /setZahl <number>
