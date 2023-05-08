@@ -18,7 +18,7 @@ public class PlayerInfo implements CommandExecutor {
         if(command.getName().equalsIgnoreCase("playerinfo")){
             if(sender instanceof Player){
                 Player player = (Player) sender;
-                sender.sendMessage("Content in yml Config File: " + plugin.getConfig().getInt("zahl"));
+                sender.sendMessage("Content in Config File: " + plugin.getConfig().get("zahl"));
                 sender.sendMessage("Your Position: " + ((Player) sender).getLocale());
                 sender.sendMessage("Your Unique ID: " + ((Player) sender).getUniqueId());
                 sender.sendMessage("Your Display name: " + ((Player) sender).getDisplayName());

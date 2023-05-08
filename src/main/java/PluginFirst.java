@@ -11,6 +11,7 @@ public class PluginFirst extends JavaPlugin {
 
         super.onDisable();
         this.getLogger().log(Level.INFO, "First_Plugin couldnt be loaded!");
+
     }
 
 
