@@ -18,3 +18,7 @@
     setZahl:
       description: set Zahl in config file
       usage: /setZahl <number>
+
+    testSet:
+      description: test for schedular
+      usage: /testSet <true or false>s
