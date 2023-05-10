@@ -22,14 +22,24 @@ public class testSet implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(command.getName().equalsIgnoreCase("testset")){
             if(args.length == 0){
-                sender.sendMessage(String.valueOf(config.getInt("test")));
+                if(config.contains("test")) {
+                    int temp = config.getInt("test");
+                    i++;
+                } else{
+                    config.set("test", i);
+                }
                 return true;
             }
             if(args.length == 1 && args[0] == "true"){
                 activate();
+                sender.sendMessage("activated");
                 return true;
-            } else if(args.length == 1 && args[0] == "false")
-            return true;
+            } else if(args.length == 1 && args[0] == "false"){
+                deactivate();
+                sender.sendMessage("deactivated");
+                return true;
+            }
+
         }
         return false;
     }

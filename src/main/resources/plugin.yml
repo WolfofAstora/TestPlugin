@@ -19,6 +19,10 @@
       description: set Zahl in config file
       usage: /setZahl <number>
 
+    argsChecker:
+      description: prints out arguments and their datatypes
+      usage: /argsChecker <args>
+
     testSet:
       description: test for schedular
-      usage: /testSet <true or false>s
+      usage: /testSet <true or false>
