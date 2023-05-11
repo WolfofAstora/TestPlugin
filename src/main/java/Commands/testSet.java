@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
+import java.util.logging.Level;
+
 public class testSet implements CommandExecutor {
 
     private Plugin plugin;
@@ -17,52 +19,53 @@ public class testSet implements CommandExecutor {
     public testSet(Plugin plugin){
         this.plugin = plugin;
         config = plugin.getConfig();
+
+        if(!config.isSet("test")){
+            config.set("test", Integer.toString(i));
+        }
+
     }
 
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(command.getName().equalsIgnoreCase("testset")){
-            if(args.length == 0){
-                if(config.contains("test")) {
-                    int temp = config.getInt("test");
-                    i++;
-                } else{
-                    config.set("test", i);
+            if(args.length == 1){
+                if(args[0].equals("test")) {
+                    int temp = (int)config.getInt("test");
+                    config.set("test", Integer.toString(i));
+                    sender.sendMessage("test: " + temp);
+                    return true;
+                } if(args[0].equals("true")){
+                    activate();
+                    sender.sendMessage("activated");
+                    return true;
+                } else if(args[0].equals("false")) {
+                    deactivate();
+                    sender.sendMessage("deactivated");
+                    return true;
                 }
-                return true;
-            }
-            if(args.length == 1 && args[0] == "true"){
-                activate();
-                sender.sendMessage("activated");
-                return true;
-            } else if(args.length == 1 && args[0] == "false"){
-                deactivate();
-                sender.sendMessage("deactivated");
-                return true;
             }
 
         }
         return false;
     }
 
-    private int commandFunction(){
-        if(config.contains("test")) {
-            int temp = config.getInt("test");
+    private void commandFunction(){
             i++;
-        } else{
-            config.set("test", i);
-        }
-        return i;
+            config.set("test", Integer.toString(i));
+            plugin.saveConfig();
     }
     protected void activate(){
-        config.set("testset", true);
+        config.set("testset", "true");
         taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             public void run() {
                 commandFunction();
+                plugin.getLogger().log(Level.INFO, "working");
             }
         }, 0L, 100L);
     }
+
     protected void deactivate(){
-        config.set("testset", false);
+        config.set("testset", "false");
         Bukkit.getScheduler().cancelTask(taskId);
     }
 }

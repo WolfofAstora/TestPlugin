@@ -15,11 +15,16 @@ public class checkIfActive extends BukkitRunnable {
     }
 
     public void run() {
-        if(config.getBoolean("testset")){
-
-        }
+        plugin.reloadConfig();
     }
 
+    public void startSchedular(){
+        runTaskTimer(plugin, 0L, 100L);
+    }
+
+    public void stopSchedular(){
+        cancel();
+    }
     /* Eine Klasse die ein Schedular hat um jede 10 Sekuden prüft ob irgendein anderer Task angestoßen werden sollte*/
 
 }

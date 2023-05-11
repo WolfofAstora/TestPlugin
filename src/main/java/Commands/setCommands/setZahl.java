@@ -19,8 +19,7 @@ public class setZahl implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(command.getName().equalsIgnoreCase("setzahl")){
             if(args.length == 0){
-                sender.sendMessage("Usage: /setZahl <number>");
-                return true;
+                return false;
             } else if(args.length == 1){
                 config.set("zahl", args[0]);
                 plugin.saveConfig();
