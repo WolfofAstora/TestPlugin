@@ -20,6 +20,8 @@ public class testSet implements CommandExecutor {
         this.plugin = plugin;
         config = plugin.getConfig();
 
+        config.set("testset", "false");
+
         if(!config.isSet("test")){
             config.set("test", Integer.toString(i));
         }
@@ -30,9 +32,8 @@ public class testSet implements CommandExecutor {
         if(command.getName().equalsIgnoreCase("testset")){
             if(args.length == 1){
                 if(args[0].equals("test")) {
-                    int temp = (int)config.getInt("test");
-                    config.set("test", Integer.toString(i));
-                    sender.sendMessage("test: " + temp);
+                    commandFunction();
+                    sender.sendMessage(config.get("test") + " was set");
                     return true;
                 } if(args[0].equals("true")){
                     activate();

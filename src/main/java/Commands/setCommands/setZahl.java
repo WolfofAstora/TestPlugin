@@ -4,7 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class setZahl implements CommandExecutor {
@@ -22,7 +21,9 @@ public class setZahl implements CommandExecutor {
                 return false;
             } else if(args.length == 1){
                 config.set("zahl", args[0]);
+                sender.sendMessage(config.get("zahl") + " is set");
                 plugin.saveConfig();
+                return true;
             }
         }
         return false;
