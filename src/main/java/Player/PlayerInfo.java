@@ -8,13 +8,16 @@ import org.bukkit.plugin.Plugin;
 
 public class PlayerInfo implements CommandExecutor {
 
+    // global, private variable
     private Plugin plugin;
 
-    public PlayerInfo(Plugin plugin) {
+    public PlayerInfo(Plugin plugin) { // constructor
         this.plugin = plugin;
     }
 
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
+
+        // prints out some information about the player
         if(command.getName().equalsIgnoreCase("playerinfo")){
             if(sender instanceof Player){
                 Player player = (Player) sender;

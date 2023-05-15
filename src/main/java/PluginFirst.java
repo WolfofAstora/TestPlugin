@@ -10,6 +10,8 @@ import java.util.logging.Level;
 public class PluginFirst extends JavaPlugin {
 
     public void onDisable() {
+        //if the plugin is disabled, then it will be shown in the console
+
         super.onDisable();
         this.getLogger().log(Level.INFO, "First_Plugin couldnt be loaded!");
 
@@ -17,7 +19,8 @@ public class PluginFirst extends JavaPlugin {
 
 
     public void onEnable() {
-
+        // if the plugin is successfully loaded, then it saves the config
+        // and listen to the command
         super.onEnable();
         saveDefaultConfig();
 

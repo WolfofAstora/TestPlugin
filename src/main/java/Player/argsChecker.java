@@ -7,6 +7,9 @@ import org.bukkit.command.CommandSender;
 public class argsChecker implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+
+        // prints out the parameter given with the command
+
         if(command.getName().equalsIgnoreCase("argsChecker")){
             args.toString();
             if(args.length == 1) {
